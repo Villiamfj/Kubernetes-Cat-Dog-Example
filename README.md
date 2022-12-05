@@ -4,13 +4,13 @@ This project contains an example of multiple services deployed in Kubernetes. Fu
 
 The example contains three services, a cat that says "meow", a dog that says "woof" and a controller that presents what both a cat and a dog says.
 
-# opsætning
+# The setup
 ```mermaid
 graph LR;
     a((user))--http://localhost:8080 ---> controller-service
     subgraph Kubernetes
-    cat-service ---> cat-pod
-    dog-service ---> dog-pod
+    cat-service ---> cat-pods
+    dog-service ---> dog-pods
     controller-service ---> controller-pods
     controller-pods--http://cat-service:7070 ---> cat-service
     controller-pods--http://dog-service:6060 ---> dog-service
